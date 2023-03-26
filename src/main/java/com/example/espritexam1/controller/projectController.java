@@ -2,6 +2,7 @@ package com.example.espritexam1.controller;
 
 import com.example.espritexam1.entites.Project;
 import com.example.espritexam1.entites.User;
+import com.example.espritexam1.exceptions.EmptyException;
 import com.example.espritexam1.service.IProjectServices;
 import com.example.espritexam1.service.IUserServices;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,7 @@ public class projectController {
     @Autowired
     private IProjectServices iProjectServices;
     @PostMapping("/ajouterproject")
-    public void addProject(@RequestBody Project project){
-        iProjectServices.addProject(project);
+    public void addProject(@RequestBody Project project) throws EmptyException {
+        iProjectServices.addProject(project) ;
     }
-
 }
